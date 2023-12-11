@@ -56,7 +56,7 @@ export default function Posts() {
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
-            className="flex flex-col gap-5 items-center justify-center border h-[300px]"
+            className={`flex flex-col gap-5 items-center justify-center border h-[300px]`}
             key={el.id}
           >
             <h3>{el.title}</h3>
