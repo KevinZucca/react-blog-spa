@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Posts() {
   const [postsList, setPostsList] = useState([]);
+  const [tags, setTags] = useState([]);
 
   async function getPosts() {
     try {
@@ -14,14 +15,38 @@ export default function Posts() {
     }
   }
 
+  async function getTags() {
+    try {
+      const response = await fetch("http://localhost:3000/tags");
+      const tags = await response.json();
+      setTags(tags);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   useEffect(() => {
     getPosts();
+    getTags();
   }, []);
 
   return (
     <>
-      <h2>All posts</h2>
+      {/* filters */}
+      <ul className="flex justify-between my-4">
+        <li className="hover:text-sky-400 text-gray-300">
+          <button onClick={() => getPosts()}>Tutti i post</button>
+        </li>
+        {tags.map((el, index) => (
+          <li className="hover:text-sky-400 text-gray-300" key={el.id}>
+            <Link to={`/tagposts/${el.name}`}>
+              <button>{el.name}</button>
+            </Link>
+          </li>
+        ))}
+      </ul>
 
+      {/* all posts */}
       <div className="w-full grid grid-cols-4 gap-5 p-4">
         {postsList.map((el, index) => (
           <div

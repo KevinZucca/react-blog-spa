@@ -5,6 +5,7 @@ import Posts from "./pages/Posts";
 import About from "./pages/About";
 import DefaultLayout from "./layouts/DefaultLayout";
 import PostsShow from "./pages/PostsShow";
+import TagPosts from "./pages/TagPosts";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/posts" element={<Posts />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/posts/:slug" element={<PostsShow />}></Route>
+            <Route path="/tagposts/:tags" element={<TagPosts />}></Route>
           </Route>
         </Routes>
       </Router>
