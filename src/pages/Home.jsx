@@ -1,8 +1,18 @@
+import { useSpring, animated } from "react-spring";
+
 export default function Home() {
+  //   animations
+  const hero = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 800 },
+  });
+
   return (
     <>
-      <div
+      <animated.div
         style={{
+          ...hero,
           background:
             'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://4kwallpapers.com/images/walls/thumbs_3t/13542.jpg")',
           backgroundPosition: "center",
@@ -16,7 +26,7 @@ export default function Home() {
           <h1 className="text-6xl  text-white">Homepage</h1>
           <p className="text-3xl text-white">Welcome to the homepage</p>
         </div>
-      </div>
+      </animated.div>
     </>
   );
 }
