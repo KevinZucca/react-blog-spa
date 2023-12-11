@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Posts from "./pages/Posts";
 import About from "./pages/About";
 import DefaultLayout from "./layouts/DefaultLayout";
+import PostsShow from "./pages/PostsShow";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/posts" element={<Posts />}></Route>
             <Route path="/about" element={<About />}></Route>
+            <Route path="/posts/:slug" element={<PostsShow />}></Route>
           </Route>
         </Routes>
       </Router>
