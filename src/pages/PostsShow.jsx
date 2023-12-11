@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function PostsShow() {
   const { slug } = useParams();
   const [post, setPost] = useState();
+  const navigate = useNavigate();
 
   async function getSinglePost() {
     try {
@@ -21,10 +22,17 @@ export default function PostsShow() {
 
   return (
     <>
-      <div className="border h-[500px] p-4 w-1/4 m-auto my-10 flex justify-center items-center">
+      <button
+        onClick={() => navigate(-1)}
+        className="mt-3 text-left bg-sky-500 rounded-xl px-5 py-2 hover:bg-sky-800"
+      >
+        Back
+      </button>
+      <div className="border h-[500px] p-4 w-1/4 m-auto my-10 flex flex-col gap-3 justify-center items-center text-center">
         {post ? (
           <>
-            <h2>{post.title}</h2>
+            <h2 className="text-2xl">{post.title}</h2>
+            <p>{post.content}</p>
           </>
         ) : (
           <p>Caricamento...</p>
