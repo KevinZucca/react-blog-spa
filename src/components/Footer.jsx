@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
     <>
-      <h2 className="bg-sky-600">Footer</h2>
+      <div className="flex p-4 bg-gray-800 justify-center">
+        <h2>Footer</h2>
+      </div>
     </>
   );
 }

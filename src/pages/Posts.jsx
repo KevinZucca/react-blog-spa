@@ -50,6 +50,12 @@ export default function Posts() {
       <div className="w-full grid grid-cols-4 gap-5 p-4">
         {postsList.map((el, index) => (
           <div
+            style={{
+              backgroundImage: `url(${el.image?.src})`,
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
             className="flex flex-col gap-5 items-center justify-center border h-[300px]"
             key={el.id}
           >
